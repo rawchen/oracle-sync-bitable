@@ -442,8 +442,8 @@ public class SignUtil {
                 "              \"field_name\": \"日期\",\n" +
                 "              \"is_primary\": false,\n" +
                 "              \"property\": null,\n" +
-                "              \"type\": 1,\n" +
-                "              \"ui_type\": \"Text\"\n" +
+                "              \"type\": 5,\n" +
+                "              \"ui_type\": \"DateTime\"\n" +
                 "            },\n" +
                 "            {\n" +
                 "              \"field_name\": \"运输费\",\n" +

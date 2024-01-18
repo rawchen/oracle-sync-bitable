@@ -14,8 +14,10 @@ import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -417,7 +419,7 @@ public class StringUtil {
                 .replace("\"ns_order\"", "\"NS单号\"")
                 .replace("\"subsidiary\"", "\"附属\"")
                 .replace("\"warehouse\"", "\"仓库\"")
-                .replace("\"date\"", "\"日期\"")
+                .replace("\"originDate\"", "\"日期\"")
                 .replace("\"shippingcost\"", "\"运输费\"")
                 .replace("\"salesrep\"", "\"销售代表\"")
                 .replace("\"account\"", "\"账户\"")
@@ -440,5 +442,12 @@ public class StringUtil {
             return "";
         }
         return resultStr.length() > number ? resultStr.substring(0, number) + "..." : resultStr;
+    }
+
+    public static Long timeToTimestamp(String date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate result = LocalDate.parse(date, formatter);
+        long a = Instant.ofEpochMilli(result.atStartOfDay().toInstant(ZoneOffset.ofHours(8)).toEpochMilli()).getEpochSecond();
+        return a * 1000;
     }
 }

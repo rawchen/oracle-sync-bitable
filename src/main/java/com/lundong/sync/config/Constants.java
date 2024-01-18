@@ -23,4 +23,6 @@ public class Constants {
 
     public static String ACCESS_TOKEN = "";
 
+    public static String CHAT_ID = "oc_46b46fc314627f429165563d502e3955";
+
 }

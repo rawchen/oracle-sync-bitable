@@ -34,11 +34,11 @@ public class FileUtil {
 	}
 
 	public static String textFileToString() {
-		return textFileToString(new File(System.getProperty("user.dir") + File.separator + "TABLE_ID.data"));
+		return textFileToString(new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "TABLE_ID.data"));
 	}
 
 	public static int stringToTextFile(String tableId) {
-		return stringToTextFile(tableId, new File(System.getProperty("user.dir") + File.separator + "TABLE_ID.data"));
+		return stringToTextFile(tableId, new File(System.getProperty("user.dir") + File.separator + "data" + File.separator + "TABLE_ID.data"));
 	}
 
 	public static String textFileToStringOrder() {

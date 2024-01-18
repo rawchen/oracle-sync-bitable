@@ -39,8 +39,14 @@ public class Order {
 	/**
 	 * 日期
 	 */
-	@JSONField(name = "date")
+	@JSONField(name = "date", serialize = false)
 	private String date;
+
+	/**
+	 * 日期
+	 */
+	@JSONField(name = "originDate")
+	private Long originDate;
 
 	/**
 	 * 运输费

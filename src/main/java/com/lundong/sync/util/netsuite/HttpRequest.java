@@ -23,7 +23,7 @@ public class HttpRequest {
 		String auth=ta.generateAuthorization(authInfo,requestMethod, params);*/
         //获取NetSuite签名, 2021.1版本使用HMAC-SHA256加密签名
         String authorization = constructAuthHeader(authInfo, requestMethod);
-        System.out.println("Authorization: " + authorization);
+//        System.out.println("Authorization: " + authorization);
         //设置返回类型与签名等Header
         if (map == null) map = new HashMap<String, String>();
         map.put("content-type", "application/json");
@@ -115,8 +115,8 @@ public class HttpRequest {
         parameters.put("oauth_consumer_key", consumer_key);
         parameters.put("oauth_nonce", nonce);
         parameters.put("oauth_signature_method", signature_method);
-        System.out.println(timestamp);
-        System.out.println(nonce);
+//        System.out.println(timestamp);
+//        System.out.println(nonce);
         parameters.put("oauth_timestamp", String.valueOf(timestamp));
         parameters.put("oauth_token", access_token);
         parameters.put("oauth_version", "1.0");
@@ -130,7 +130,7 @@ public class HttpRequest {
         signatureBaseString.append(urlEncode(parameterString));
         //转换成String类型
         String signatureString = signatureBaseString.toString();
-        System.out.println(signatureString);
+//        System.out.println(signatureString);
         //生成签名
         byte[] bytesToSign = signatureString.getBytes("UTF-8");
         byte[] keyBytes = key.getBytes("UTF-8");
@@ -138,9 +138,9 @@ public class HttpRequest {
         Mac mac = Mac.getInstance(signature_method_code);
         mac.init(signingKey);
         byte[] signedBytes = mac.doFinal(bytesToSign);
-        System.out.println(new String(Base64.encodeBase64(signedBytes, false)));
+//        System.out.println(new String(Base64.encodeBase64(signedBytes, false)));
         String signature = urlEncode(new String(Base64.encodeBase64(signedBytes, false)));
-        System.out.println(signature);
+//        System.out.println(signature);
 
         return new StringBuilder().append("OAuth ")
                 .append("realm").append("=\"").append(realm)

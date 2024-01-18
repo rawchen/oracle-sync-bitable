@@ -87,7 +87,7 @@ public class BitableServiceImpl implements BitableService {
 //                            good.setGoodsSum(itemsJsonArray.getJSONObject(j).getInteger("quantity"));
 //                            good.setPriceSum(itemsJsonArray.getJSONObject(j).getDouble("price"));
                         good.setAccount(orders.get(i).getAccount());
-                        good.setDate(orders.get(i).getDate());
+                        good.setOriginDate(StringUtil.timeToTimestamp(orders.get(i).getDate()));
                         good.setCurrency(orders.get(i).getCurrency());
                         good.setStatus(orders.get(i).getStatus());
                         good.setDeliveryDate(orders.get(i).getDeliveryDate());
@@ -106,6 +106,7 @@ public class BitableServiceImpl implements BitableService {
                     }
                     orders.get(i).setPriceSum(priceSum);
                     orders.get(i).setGoodsSum(goodsSum);
+                    orders.get(i).setOriginDate(StringUtil.timeToTimestamp(orders.get(i).getDate()));
                     orderList.add(orders.get(i));
                     orderList.addAll(goods);
                     goods.clear();

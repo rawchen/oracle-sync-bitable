@@ -3,6 +3,8 @@ package com.lundong.sync;
 import com.lundong.sync.config.Constants;
 import com.lundong.sync.entity.Order;
 import com.lundong.sync.util.SignUtil;
+import com.lundong.sync.util.StringUtil;
+import com.lundong.sync.util.netsuite.NetsuiteUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -37,5 +39,17 @@ class ApplicationTests {
         for (String view : views) {
             System.out.println(view);
         }
+    }
+
+    @Test
+    void t05() {
+        Long l = StringUtil.timeToTimestamp("2024/01/08");
+        System.out.println(l);
+    }
+
+    @Test
+    void t06() {
+        String content = NetsuiteUtil.request();
+//        System.out.println(content);
     }
 }
